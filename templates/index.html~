@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY GOATS STATS </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Stats</h1>
+        <a href="{{ url_for('add_stats') }}">Add Stephs stats</a>
+    </header>
+    <main>
+        {% if stats %}
+            <ul>
+                {% for stat in stats %}
+                    <li>
+                        <p>{{ stat.points }}</p>
+                        <p>{{ stat.threes }}</p>
+			<p>{{ stat.twos }} </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No stats yet. Create one!</p>
+        {% endif %}
+    </main>
+</body>
+</html>
